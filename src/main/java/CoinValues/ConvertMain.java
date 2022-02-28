@@ -1,11 +1,13 @@
 package CoinValues;
 import java.util.Scanner;
+import java.util.ArrayList;
 
 
 public class ConvertMain {
     public static void main(String[] args) {
         boolean b = true;
         int i = 0;
+        ArrayList<Double> ConvertHistory = new ArrayList<Double>();
         do {
             //Welcome screen
             System.out.println("Welcome to currency converter");
@@ -26,6 +28,7 @@ public class ConvertMain {
                 ILS ils = new ILS();
                 double value = ils.calculate(input);
                 System.out.println("The result is: " + value + " Shekels");
+                ConvertHistory.add(value);
             }
             //Convert Shekel to Dollar
             else if (choice == 2) {
@@ -34,6 +37,7 @@ public class ConvertMain {
                 double value = usd.calculate(input);
                 //Result screen
                 System.out.println("The result is: " + value + " Dollars");
+                ConvertHistory.add(value);
             }
             //Start over or exit
             System.out.println("Do you want to start over? enter y/n");
@@ -41,12 +45,13 @@ public class ConvertMain {
             String answer = scanner2.next();
             i++;
             if (answer.equalsIgnoreCase("y")){
-                b = false;
+                b = true;
             }
 
         }   while (b = false);{
             //End screen
             System.out.println("Thanks for using our currency converter");
+            System.out.println(ConvertHistory);
         }
         }
 
