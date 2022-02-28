@@ -51,7 +51,7 @@ public class ConvertMain {
                 b = false;
                 //End screen
                 System.out.println("Thanks for using our currency converter");
-                System.out.println(ConvertHistory);
+                System.out.println("Your conversion history: "+ConvertHistory);
                 break;
             }
 
