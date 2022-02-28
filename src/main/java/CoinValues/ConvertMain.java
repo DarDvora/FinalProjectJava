@@ -8,7 +8,7 @@ public class ConvertMain {
         boolean b = true;
         int i = 0;
         ArrayList<Double> ConvertHistory = new ArrayList<Double>();
-        do {
+        while (b=true){
             //Welcome screen
             System.out.println("Welcome to currency converter");
             System.out.println("Please choose an option (1/2):");
@@ -43,15 +43,18 @@ public class ConvertMain {
             System.out.println("Do you want to start over? enter y/n");
             Scanner scanner2 = new Scanner(System.in);
             String answer = scanner2.next();
-            i++;
             if (answer.equalsIgnoreCase("y")){
                 b = true;
+                i++;
+
+            } else if (answer.equalsIgnoreCase("n")){
+                b = false;
+                //End screen
+                System.out.println("Thanks for using our currency converter");
+                System.out.println(ConvertHistory);
+                break;
             }
 
-        }   while (b = false);{
-            //End screen
-            System.out.println("Thanks for using our currency converter");
-            System.out.println(ConvertHistory);
         }
         }
 
