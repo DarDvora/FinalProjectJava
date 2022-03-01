@@ -3,6 +3,8 @@ import java.util.Scanner;
 import java.util.ArrayList;
 import java.io.IOException;
 import java.io.FileWriter;
+import java.util.Date;
+import java.text.SimpleDateFormat;
 
 
 public class ConvertMain {
@@ -70,7 +72,9 @@ public class ConvertMain {
                 System.out.println("Your conversion history: "+ConvertHistory);
 
                 //Export to doc (from stackoverflow)
-                FileWriter conversionHistoryFile = new FileWriter("conversionHistoryFile.txt");
+                Date date = new Date() ;
+                SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH-mm-ss") ;
+                FileWriter conversionHistoryFile = new FileWriter(dateFormat.format(date)+" conversionHistoryFile.txt");
                 for (double arrayList: ConvertHistory){
                     conversionHistoryFile.write(arrayList+System.lineSeparator());
                 }
