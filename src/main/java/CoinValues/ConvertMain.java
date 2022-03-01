@@ -1,10 +1,14 @@
 package CoinValues;
 import java.util.Scanner;
 import java.util.ArrayList;
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Paths;
+import java.io.FileWriter;
 
 
 public class ConvertMain {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException {
         boolean b = true;
         int i = 0;
         ArrayList<Double> ConvertHistory = new ArrayList<Double>();
@@ -50,6 +54,13 @@ public class ConvertMain {
                 //End screen
                 System.out.println("Thanks for using our currency converter");
                 System.out.println("Your conversion history: "+ConvertHistory);
+
+                //Export to doc
+                FileWriter conversionHistoryFile = new FileWriter("conversionHistoryFile.txt");
+                for (double arrayList: ConvertHistory){
+                    conversionHistoryFile.write(arrayList+System.lineSeparator());
+                }
+                conversionHistoryFile.close();
                 break;
             }
 
