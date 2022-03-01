@@ -2,14 +2,12 @@ package CoinValues;
 import java.util.Scanner;
 import java.util.ArrayList;
 import java.io.IOException;
-import java.nio.file.Files;
-import java.nio.file.Paths;
 import java.io.FileWriter;
 
 
 public class ConvertMain {
     public static void main(String[] args) throws IOException {
-        boolean b = true;
+        boolean b;
         int i = 0;
         ArrayList<Double> ConvertHistory = new ArrayList<Double>();
 
