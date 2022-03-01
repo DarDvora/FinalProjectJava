@@ -25,16 +25,14 @@ public class ConvertMain {
             //Convert Dollar to Shekel
             if (choice == 1) {
                 Coin ilsValue = CoinsFactory.getCoinInstance(Coins.ILS);
-                ILS ils = new ILS();
-                double value = ils.calculate(input);
+                double value = ilsValue.calculate(input);
                 System.out.println("The result is: " + value + " Shekels");
                 ConvertHistory.add(value);
             }
             //Convert Shekel to Dollar
             else if (choice == 2) {
                 Coin usdValue = CoinsFactory.getCoinInstance(Coins.USD);
-                USD usd = new USD();
-                double value = usd.calculate(input);
+                double value = usdValue.calculate(input);
                 //Result screen
                 System.out.println("The result is: " + value + " Dollars");
                 ConvertHistory.add(value);
