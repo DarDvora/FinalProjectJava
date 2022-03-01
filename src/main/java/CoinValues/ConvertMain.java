@@ -55,7 +55,7 @@ public class ConvertMain {
                 System.out.println("Thanks for using our currency converter");
                 System.out.println("Your conversion history: "+ConvertHistory);
 
-                //Export to doc
+                //Export to doc (from stackoverflow)
                 FileWriter conversionHistoryFile = new FileWriter("conversionHistoryFile.txt");
                 for (double arrayList: ConvertHistory){
                     conversionHistoryFile.write(arrayList+System.lineSeparator());
