@@ -8,13 +8,15 @@ import java.text.SimpleDateFormat;
 
 
 public class ConvertMain {
-    public static void main(String[] args) throws IOException {
+    public static void main(String[] args) throws Exception {
         boolean b;
+        boolean ans;
         int i = 0;
+        int YN = 0;
         ArrayList<Double> ConvertHistory = new ArrayList<Double>();
 
 
-        while (b=true){
+        while (b = true) {
             //Welcome screen
             System.out.println("Welcome to currency converter");
             System.out.println("Please choose an option (1/2):");
@@ -27,7 +29,7 @@ public class ConvertMain {
                 int choice = scanner.nextInt();
 
                 // 1/2 validation
-                if (choice != 1 && choice !=2){
+                if (choice != 1 && choice != 2) {
                     throw new Exception("Invalid input");
                 }
 
@@ -53,37 +55,48 @@ public class ConvertMain {
                 }
 
                 //other input is not valid
-            }catch (Exception e){
+            } catch (Exception e) {
                 System.out.println("Invalid input");
             }
 
-            //Start over or exit
-            System.out.println("Do you want to start over? enter y/n");
-            Scanner scanner2 = new Scanner(System.in);
-            String answer = scanner2.next();
-            if (answer.equalsIgnoreCase("y")){
-                b = true;
-                i++;
+            try {
+                while (ans = true){
+                //Start over or exit
+                System.out.println("Do you want to start over? enter y/n");
+                Scanner scanner2 = new Scanner(System.in);
+                String answer = scanner2.next();
 
-            } else if (answer.equalsIgnoreCase("n")){
-                b = false;
-                //End screen
-                System.out.println("Thanks for using our currency converter");
-                System.out.println("Your conversion history: "+ConvertHistory);
 
-                //Export to doc (from stackoverflow)
-                Date date = new Date() ;
-                SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH-mm-ss") ;
-                FileWriter conversionHistoryFile = new FileWriter(dateFormat.format(date)+" conversionHistoryFile.txt");
-                for (double arrayList: ConvertHistory){
-                    conversionHistoryFile.write(arrayList+System.lineSeparator());
+                if (answer.equalsIgnoreCase("y")) {
+                    b = true;
+                    i++;
+
+                } else if (answer.equalsIgnoreCase("n")) {
+                    b = false;
+                    ans = false;
+                    //End screen
+                    System.out.println("Thanks for using our currency converter");
+                    System.out.println("Your conversion history: " + ConvertHistory);
+
+                    //Export to doc (from stackoverflow)
+                    Date date = new Date();
+                    SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH-mm-ss");
+                    FileWriter conversionHistoryFile = new FileWriter(dateFormat.format(date) + " conversionHistoryFile.txt");
+                    for (double arrayList : ConvertHistory) {
+                        conversionHistoryFile.write(arrayList + System.lineSeparator());
+                    }
+                    conversionHistoryFile.close();
                 }
-                conversionHistoryFile.close();
-                break;
             }
+                }
+                catch (IOException e){
+                    ans = false;
+                    System.out.println("Invalid character please try again");
+                    YN++;
 
-        }
+                }break;
+
         }
 
     }
-
+}
