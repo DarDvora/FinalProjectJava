@@ -9,14 +9,14 @@ import java.text.SimpleDateFormat;
 
 public class ConvertMain {
     public static void main(String[] args) throws Exception {
-        boolean b;
-        boolean ans;
+        boolean b= true;
+        boolean ans = true;
         int i = 0;
         int YN = 0;
         ArrayList<Double> ConvertHistory = new ArrayList<Double>();
 
 
-        while (b = true) {
+        while (b == true) {
             //Welcome screen
             System.out.println("Welcome to currency converter");
             System.out.println("Please choose an option (1/2):");
@@ -59,8 +59,8 @@ public class ConvertMain {
                 System.out.println("Invalid input");
             }
 
-            try {
-                while (ans = true){
+
+                while (ans == true){
                 //Start over or exit
                 System.out.println("Do you want to start over? enter y/n");
                 Scanner scanner2 = new Scanner(System.in);
@@ -69,7 +69,7 @@ public class ConvertMain {
 
                 if (answer.equalsIgnoreCase("y")) {
                     b = true;
-                    i++;
+                    break;
 
                 } else if (answer.equalsIgnoreCase("n")) {
                     b = false;
@@ -86,17 +86,17 @@ public class ConvertMain {
                         conversionHistoryFile.write(arrayList + System.lineSeparator());
                     }
                     conversionHistoryFile.close();
+                    break;
                 }
+                else {
+                    System.out.println("Invalid character please try again");
+
             }
                 }
-                catch (IOException e){
-                    ans = false;
-                    System.out.println("Invalid character please try again");
-                    YN++;
 
-                }break;
+
+                }
 
         }
 
     }
-}
