@@ -1,7 +1,6 @@
 package CoinValues;
 import java.util.Scanner;
 import java.util.ArrayList;
-import java.io.IOException;
 import java.io.FileWriter;
 import java.util.Date;
 import java.text.SimpleDateFormat;
@@ -11,8 +10,6 @@ public class ConvertMain {
     public static void main(String[] args) throws Exception {
         boolean b= true;
         boolean ans = true;
-        int i = 0;
-        int YN = 0;
         ArrayList<Double> ConvertHistory = new ArrayList<Double>();
 
 
@@ -66,7 +63,7 @@ public class ConvertMain {
                 Scanner scanner2 = new Scanner(System.in);
                 String answer = scanner2.next();
 
-
+                // Y/N validation
                 if (answer.equalsIgnoreCase("y")) {
                     b = true;
                     break;
@@ -88,6 +85,7 @@ public class ConvertMain {
                     conversionHistoryFile.close();
                     break;
                 }
+                // Other input is not valid
                 else {
                     System.out.println("Invalid character please try again");
 
