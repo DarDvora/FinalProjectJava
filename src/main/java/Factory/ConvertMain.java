@@ -1,4 +1,4 @@
-package CoinValues;
+package Factory;
 import java.util.Scanner;
 import java.util.ArrayList;
 import java.io.FileWriter;

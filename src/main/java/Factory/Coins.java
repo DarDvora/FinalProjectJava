@@ -1,4 +1,4 @@
-package CoinValues;
+package Factory;
 
 public enum Coins {
     USD,

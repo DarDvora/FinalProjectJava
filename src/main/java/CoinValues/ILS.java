@@ -1,6 +1,8 @@
 package CoinValues;
 
-public class ILS extends Coin{
+import Factory.Coin;
+
+public class ILS extends Coin {
 
     private final double value = 0.28;
 

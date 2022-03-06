@@ -1,4 +1,7 @@
-package CoinValues;
+package Factory;
+
+import CoinValues.ILS;
+import CoinValues.USD;
 
 public class CoinsFactory {
    public static Coin getCoinInstance (Coins coin) {
